@@ -1,40 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📊 Table Component
 
-## Getting Started
+A customizable and reusable React table component built with Ant Design, supporting features like sorting, filtering, and dynamic styling.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Customizable Columns**: Define columns with sorting and filtering options.
+- **Dynamic Styling**: Apply custom styles to headers and cells.
+- **Reusable Component**: Easily integrate into various parts of your application.
+
+## 📦 Installation
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/priyaanshusoni/Table-Component.git
+   cd Table-Component
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+   or
+
+   ```bash
+   yarn install
+   ```
+
+## 🛠️ Usage
+
+1. **Import the Component**:
+
+   ```tsx
+   import TableComponent from './components/ui/TableComponent';
+   import { columns } from './components/ui/columns';
+   ```
+
+2. **Prepare Your Data**:
+
+   Ensure your data matches the expected format:
+
+   ```tsx
+   const data = [
+     {
+       component_name: 'Component A',
+       component_id: '001',
+       subcomponents: [
+         {
+           component_name: 'Subcomponent A1',
+           damaged_quantity: 2,
+           discarded_quantity: 1,
+           total_quantity: 10,
+         },
+         // ...more subcomponents
+       ],
+     },
+     // ...more components
+   ];
+   ```
+
+3. **Render the Table**:
+
+   ```tsx
+   <TableComponent data={data} columns={columns} />
+   ```
+
+## 🎨 Customization
+
+### 🔹 Changing Column Background Color
+
+1. **Add a `className` to the Column Definition**:
+
+   ```tsx
+   {
+     title: 'Component Name',
+     dataIndex: 'component_name',
+     key: 'component_name',
+     className: 'custom-column',
+   }
+   ```
+
+2. **Define the CSS Class**:
+
+   ```css
+   .custom-column {
+     background-color: #f0f2f5;
+   }
+   ```
+
+### 🔹 Disabling Header Hover Effect
+
+To disable the default hover effect on table headers, add this to your CSS:
+
+```css
+.ant-table-thead > tr:hover > th {
+  background: inherit !important;
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📂 Project Structure
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+Table-Component/
+├── components/
+│   └── ui/
+│       ├── TableComponent.tsx
+│       └── columns.ts
+├── pages/
+│   └── index.tsx
+├── styles/
+│   └── globals.css
+├── package.json
+└── README.md
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🤝 Contributing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+Contributions are welcome! Please follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Fork the repository.
+2. Create a new branch:
 
-## Learn More
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Commit your changes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+   ```bash
+   git commit -m 'Add YourFeature'
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Push to the branch:
 
-## Deploy on Vercel
+   ```bash
+   git push origin feature/YourFeature
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Open a pull request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
